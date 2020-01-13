@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-flow: column nowrap;
+}
+header{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffc;
+}
+.center{
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+ul{
+    list-style: none;
+    display:flex;
+    flex-flow: column nowrap;
+    background-color: #cff;
+}
+li{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+timer{
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: #ccc;
+    flex-basis: 50%;
+}
+.logo{
+    margin-left: 2%;
+}
+nav{
+    margin-right: 3%;
+}

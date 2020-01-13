@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TimerPlus3</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="logo">Timer Plus 3</h1>
+        <nav class="header-navigation">
+            <button class="setting">
+                Settings
+            </button>
+        </nav>
+    </header>
+    <timer>
+        <player class="center">
+            <h2 class ="task-title">Task Title</h2>
+            <h2 class="time-display">0:00</h2>
+            <nav class="play-control">
+                <button class="play">Play</button>
+                <button class="Next">Next</button>
+                <button class="Back">Back</button>
+            </nav>
+            <nav class="play-setting">
+                <input type="checkbox" class="shuffle"> Shuffle
+                <select class="repeat">
+                    <option value="repeat-all">All</option>
+                    <option value="repeat-one">One</option>
+                    <option value="repeat-none">None</option>
+                </select>
+                <button class="stop">stop</button>
+            </nav>
+        </player>
+        <time-list class="center">
+            <div class="list-control">
+                <button>Add</button>
+                <button>Delete</button>
+            </div>
+            <ul>
+                <li>
+                    <h3> Task Name </h3>
+                    <p>10:00</p>
+                    <div class="list-movement">
+                        <button>Up</button>
+                        <button>Down</button>
+                    </div>
+                </li>
+            </ul>
+        </time-list>
+
+    </timer>
+</body>
+</html>
