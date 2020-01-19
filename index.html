@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Timer Player 3</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <container>
-        <div class="timer">
+        <div class="display">
             <h1 class="name">Name</h1>
             <h1 class="time">0:00</h1>
         </div>
         <nav class="player-control">
-            <button class="play"></button>
-            <button class="pause"></button>
-            <button class="stop"></button>
-            <button class="prev"></button>
-            <button class="next"></button>
+            <button class="play">Play</button>
+            <button class="pause">Pause</button>
+            <button class="stop">Stop</button>
+            <button class="prev">Prev</button>
+            <button class="next">Next</button>
             <select name="shuffle" class="shuffle">
                 <option value="none">None</option>
                 <option value="shuffle">Shuffle</option>
@@ -36,13 +37,14 @@
             <ul class ="list">
                 <li>
                     <h2>Name</h2>
-                    <input type="number">Duration</input>
+                    <input type="number" class ="min"></input>
+                    <input type="number" class ="sec"></input>
                     <button class = "up">Up</button>
                     <button class = "down">Down</button>
                 </li>
             </ul>
         </div>
-
     </container>
+    <script src="script.js"></script>
 </body>
 </html>
