@@ -1,28 +1,31 @@
 const REPEAT = {
-    NONE: 0,
-    ONE: 1,
-    All: 2
+    NONE: "none",
+    ONE: "one",
+    All: "all"
 }
+//TODO: Shuffle,Layout,Styling,Font,When changed value on current play, change number when paused.
 /*
 *   Timer Object. Time and Durations are all measured in seconds.
 */
 class Timer {
-    constructor (item){
+    constructor (item,taskList){
         this.name = item.name;
         this.duration = item.duration;
         this.time = item.duration;
         this.timerCall;
+        this.taskList = taskList;
         this.flush();
     }
     set(item){
+        //console.log(item,this);
         if(item !== null){
             this.name = item.name;
             this.duration = item.duration;
             this.time = item.duration;
         }
         else{
-            this.time = this.duration;
             clearInterval(this.timerCall);
+            this.timerCall = 0; 
         }
         this.flush();
     }
@@ -36,9 +39,13 @@ class Timer {
     }
     decrement(){
         if(!this.time) {
-            learInterval(this.timerCall);
+            clearInterval(this.timerCall);
+            this.timerCall = 0;
+            this.set(taskList.playNext());
         }
-        this.time--;
+        else{
+            this.time--;
+        }
         this.flush();
     }
 
@@ -68,17 +75,21 @@ class TaskList{
 
         const domName = document.createElement("input");
         domName.type = "text";
+        domName.className = "name";
         domName.value = "Task Name" + this.list.length;
+        domName.addEventListener("change", this);
         itemList.push(domName);
 
         const time = this.formatTime(duration);
 
         const min = this.createTimeDOM(time.min, "min");
+        min.addEventListener('change',this);
         itemList.push(min);
 
         itemList.push(document.createTextNode(":"));
 
         const sec = this.createTimeDOM(time.sec, "sec");
+        sec.addEventListener('change',this);
         itemList.push(sec);
 
         let up = document.createElement("button");
@@ -90,9 +101,7 @@ class TaskList{
     
             if(item.previousElementSibling){
                 const index = Array.prototype.indexOf.call(item.parentNode.children, item);
-                console.log(this,that);
                 that.swapItem(that.list, index, index - 1 );
-                console.log(that.list);
                 item.parentNode.insertBefore(item, item.previousElementSibling);
             }
         };
@@ -128,8 +137,18 @@ class TaskList{
     current(){
         return this.list[this.index];
     }
+    playNext(){
+        switch(this.repeat){
+            case REPEAT.ONE:
+                return this.current();
+            case REPEAT.ALL:
+                if(this.index === this.list.length -1) this.index = -1;
+            case REPEAT.NONE:
+                return this.next();
+        }
+    }
     next(){
-        if(this.index === this.list.length - 1) return null;
+        if(this.index === this.list.length - 1 || this.list.length == 0) return null;
         return this.list[++(this.index)];
     }
     prev(){
@@ -160,12 +179,25 @@ class TaskList{
         array[i] = array[j];
         array[j] = temp;
     }
+    handleEvent(event){
+        const item = event.srcElement.parentElement;
+        const index = Array.prototype.indexOf.call(item.parentNode.children, item);
+        if(event.srcElement.className === "name"){
+            this.list[i].name = event.srcElement.value;
+        }
+        else{
+            let duration = 60*parseInt(item.querySelector('.min').value)+parseInt(item.querySelector('.sec').value);
+            if(isNaN(duration)) duration = 0;
+            this.list[index].duration = duration;
+        }
+        
+    }
 }
 
 
 const taskList = new TaskList([],false,REPEAT.NONE);
 
-const timer = new Timer(taskList.current());
+const timer = new Timer(taskList.current(),taskList);
 
 document.querySelector(".play").addEventListener('click',function(event){
     if(!timer.timerCall){
@@ -201,4 +233,11 @@ document.querySelector(".create").addEventListener('click',function(event){
 
 document.querySelector(".delete").addEventListener('click',function(event){
     taskList.delete();
+})
+document.querySelector(".shuffle").addEventListener('change',function(event){
+    taskList.shuffle = (this.value === "shuffle");
+})
+
+document.querySelector(".repeat").addEventListener('change',function(event){
+    taskList.repeat = this.value;
 })
