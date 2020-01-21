@@ -3,7 +3,7 @@ const REPEAT = {
     ONE: "one",
     All: "all"
 }
-//TODO: Shuffle,Layout,Styling,Font,When changed value on current play, change number when paused.
+//TODO: When changed value on current play, change number when paused.
 /*
 *   Timer Object. Time and Durations are all measured in seconds.
 */
@@ -12,13 +12,13 @@ class Timer {
         this.name = item.name;
         this.duration = item.duration;
         this.time = item.duration;
-        this.timerCall;
+        this.timerCall = 0;
         this.taskList = taskList;
         this.flush();
     }
     set(item){
         //console.log(item,this);
-        if(item !== null){
+        if(item != null){
             this.name = item.name;
             this.duration = item.duration;
             this.time = item.duration;
@@ -40,6 +40,7 @@ class Timer {
     decrement(){
         if(!this.time) {
             clearInterval(this.timerCall);
+            audio.play();
             this.timerCall = 0;
             this.set(taskList.playNext());
         }
@@ -51,21 +52,23 @@ class Timer {
 
     flush(){
         document.querySelector(".display .name").innerHTML = this.name;
+
         document.querySelector(".display .time").innerHTML = this.formatTime(this.time);
+        //console.log(this.time);
     }
 }
 
 class TaskList{
-    constructor(list,shuffle,repeat){
+    constructor(list,repeat){
         this.index = 0;
         this.playCount = 0;
         this.list = list;
-        this.shuffle = shuffle;
         this.repeat = repeat;
+        this.timer = null;
         this.create();
     }
     
-    create(index = this.list.length ,name = "Task Name" + (index+1), duration= 10){
+    create(index = this.list.length ,name = "Task Name " + (index+1), duration= 10){
         this.list.splice(index, 0, {'name': name ,'duration':duration} );
         //console.log(this.list);
         
@@ -76,7 +79,7 @@ class TaskList{
         const domName = document.createElement("input");
         domName.type = "text";
         domName.className = "name";
-        domName.value = "Task Name" + this.list.length;
+        domName.value = name;
         domName.addEventListener("change", this);
         itemList.push(domName);
 
@@ -183,21 +186,37 @@ class TaskList{
         const item = event.srcElement.parentElement;
         const index = Array.prototype.indexOf.call(item.parentNode.children, item);
         if(event.srcElement.className === "name"){
-            this.list[i].name = event.srcElement.value;
+            this.list[index].name = event.srcElement.value;
+
+            if(this.index == index){
+                this.timer.name = event.srcElement.value;
+                this.timer.flush();
+            }
         }
         else{
             let duration = 60*parseInt(item.querySelector('.min').value)+parseInt(item.querySelector('.sec').value);
             if(isNaN(duration)) duration = 0;
             this.list[index].duration = duration;
+
+            if(this.index == index){
+                this.timer.duration = duration;
+                if(this.timer.timerCall === 0){
+                    this.timer.time = duration;
+                    this.timer.flush();
+                }
+            }
         }
+
+
         
     }
 }
 
 
 const taskList = new TaskList([],false,REPEAT.NONE);
-
+const audio = new Audio("service-bell_daniel_simion.mp3");
 const timer = new Timer(taskList.current(),taskList);
+taskList.timer = timer;
 
 document.querySelector(".play").addEventListener('click',function(event){
     if(!timer.timerCall){
@@ -233,9 +252,6 @@ document.querySelector(".create").addEventListener('click',function(event){
 
 document.querySelector(".delete").addEventListener('click',function(event){
     taskList.delete();
-})
-document.querySelector(".shuffle").addEventListener('change',function(event){
-    taskList.shuffle = (this.value === "shuffle");
 })
 
 document.querySelector(".repeat").addEventListener('change',function(event){

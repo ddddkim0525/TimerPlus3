@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Timer Player 3</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
 </head>
 <body>
     <container>
@@ -18,21 +19,21 @@
             <button class="pause">Pause</button>
             <button class="stop">Stop</button>
             <button class="prev">Prev</button>
+            <div class="repeat-option">
+                <p class ="control-text">Repeat</p>
+                <select name="repeat" class="repeat">
+                    <option value="none">None</option>
+                    <option value="one">One</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
             <button class="next">Next</button>
-            <select name="shuffle" class="shuffle">
-                <option value="none">None</option>
-                <option value="shuffle">Shuffle</option>
-            </select>
-            <select name="repeat" class="repeat">
-                <option value="none">None</option>
-                <option value="one">One</option>
-                <option value="all">All</option>
-            </select>
+
         </nav>
         <div class="task-list">
             <nav class="list-control">
-                <button class = "create">Create</button>
                 <button class = "delete">Delete</button>
+                <button class = "create">Create</button>
             </nav>
             <ul class ="list">
             </ul>
