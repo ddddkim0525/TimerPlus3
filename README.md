@@ -1,6 +1,6 @@
 # TimerPlus3
 
-Online Demo:https://ddddkim0525.github.io/TimerPlus3-copy/index.html
+Online Demo:https://ddddkim0525.github.io/TimerPlus3-copy/index.html <br>
 TimerPlus3 is a music-player like Timer! It is written completly with pure javascript and css. 
 I enjoy using the tomato timer (https://tomato-timer.com/), but always wanted a bit of more customizable time sequences.So I thought it would be interesting to create a timer with interface very similar to an MP3 player, where you will have tasks rather than songs.
 
