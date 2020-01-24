@@ -24,8 +24,8 @@ rather than having multiple unpresentable prototypes.
 I've never written UML beside my software engineering course, so I drew them in my notebook, and may not be in correct syntax. I've seperated two class: the Timer part and the Task List part.
 
 # Implementation
+<img src="https://github.com/ddddkim0525/TimerPlus3/blob/master/thumbnail.PNG" alt="tp3" width="50%">
 
-![timer Plus 3](https://github.com/ddddkim0525/TimerPlus3/blob/master/thumbnail.PNG)
 This project was also to review and test concepts learned from the beginner learn path from frontendmaster course. So I got to practice CSS concepts like flexbox, grids, Javascript concept such as this context, class syntax, DOM manipulation, and closure.
 
 I dropped the shuffle feature in the end due to time constraints. This is definetly not the finaly product much refactoring and documentation is needed. I plan to visit this project after a have a grasp with React, to see my improvements.
