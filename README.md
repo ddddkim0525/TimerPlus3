@@ -21,7 +21,7 @@ rather than having multiple unpresentable prototypes.
 # UML
 <img src="https://github.com/ddddkim0525/TimerPlus3/blob/master/UML.PNG" alt="uml" width="50%">
 
-I've never written UML beside my software engineering course, so I drew them in my notebook, and may not be in correct syntax. I've seperated two class: the Timer part and the Task List part.
+I've never written UML beside my software engineering course, so its probably not in correct syntax. I've seperated two class: the Timer part and the Task List part. I plan to use drawing tools such as draw.io for my future projects for cleaner documentation.
 
 # Implementation
 <img src="https://github.com/ddddkim0525/TimerPlus3/blob/master/thumbnail.PNG" alt="tp3" width="50%">
