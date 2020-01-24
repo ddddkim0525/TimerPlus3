@@ -28,7 +28,7 @@ I've never written UML beside my software engineering course, so I drew them in 
 ![timer Plus 3](https://github.com/ddddkim0525/TimerPlus3/blob/master/thumbnail.PNG)
 This project was also to review and test concepts learned from the beginner learn path from frontendmaster course. So I got to practice CSS concepts like flexbox, grids, Javascript concept such as this context, class syntax, DOM manipulation, and closure.
 
-I dropped the shuffle feature in the end due to time constraints. This is definetly not the finaly product, and have much more areas for refactoring. Furthermore, I didn't really pay attention to any documentation. 
+I dropped the shuffle feature in the end due to time constraints. This is definetly not the finaly product much refactoring and documentation is needed. I plan to visit this project after a have a grasp with React, to see my improvements.
 
 # Conclusion
-It feels good to finsih a project, whether it is big or small. It really helped me to realize that a finish project doesn't need to be perfect, packed with all the feautures I imagined from the start to be considered publishable. I hope this will give me enough inertia to tackles larger projects, and solidify my theoretical knowledge.
+It feels good to finsih a project, whether big or small. This project really helped me to realize that a finish project doesn't need to be perfect,fully packed with feautures planned from the start to be considered publishable. I hope this will give me enough inertia to tackles larger projects, and solidify my theoretical knowledge.
