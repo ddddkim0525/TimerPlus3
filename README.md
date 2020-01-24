@@ -20,12 +20,12 @@ rather than having multiple unpresentable prototypes.
 
 # UML
 
-![UML Diagram](https://github.com/ddddkim0525/TimerPlus3/master/UML.PNG)
+![UML Diagram](https://github.com/ddddkim0525/TimerPlus3/blob/master/UML.PNG)
 I've never written UML beside my software engineering course, so I drew them in my notebook, and may not be in correct syntax. I've seperated two class: the Timer part and the Task List part.
 
 # Implementation
 
-![timer Plus 3](https://github.com/ddddkim0525/TimerPlus3/master/thumbnail.PNG)
+![timer Plus 3](https://github.com/ddddkim0525/TimerPlus3/blob/master/thumbnail.PNG)
 This project was also to review and test concepts learned from the beginner learn path from frontendmaster course. So I got to practice CSS concepts like flexbox, grids, Javascript concept such as this context, class syntax, DOM manipulation, and closure.
 
 I dropped the shuffle feature in the end due to time constraints. This is definetly not the finaly product, and have much more areas for refactoring. Furthermore, I didn't really pay attention to any documentation. 
