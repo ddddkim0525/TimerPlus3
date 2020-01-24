@@ -19,8 +19,8 @@ rather than having multiple unpresentable prototypes.
  I've spent around 9 hours spreaded around 3 days to complete this project. By setting a strict deadline, I was constantly pressured to reacess my capabilities, and forced me on design decisions on which features I should work on first, and which could be dropped to deliver the project on time. 
 
 # UML
+<img src="https://github.com/ddddkim0525/TimerPlus3/blob/master/UML.PNG" alt="uml" width="50%">
 
-![UML Diagram](https://github.com/ddddkim0525/TimerPlus3/blob/master/UML.PNG)
 I've never written UML beside my software engineering course, so I drew them in my notebook, and may not be in correct syntax. I've seperated two class: the Timer part and the Task List part.
 
 # Implementation
